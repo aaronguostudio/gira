@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Aaron Guo"
+    },
+    {
+      "id": 2,
+      "name": "Bob Cios"
+    },
+    {
+      "id": 3,
+      "name": "Chris Lambert"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "SalesForce",
+      "personId": 1,
+      "organization": "Business",
+      "created": 1604989757139
+    },
+    {
+      "id": 2,
+      "name": "Web Application",
+      "personId": 2,
+      "organization": "Business",
+      "created": 1604989757139
+    },
+    {
+      "id": 3,
+      "name": "Mobile Application",
+      "personId": 3,
+      "organization": "Marketing",
+      "created": 1604989757139
+    }
+  ]
+}
