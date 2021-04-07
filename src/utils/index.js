@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 export const isFalsy = (val) => (val === 0 ? false : !val);
 
 export const cleanObject = (object) => {
@@ -9,4 +10,20 @@ export const cleanObject = (object) => {
     }
   });
   return res;
+};
+
+export const useMount = (callback) => {
+  useEffect(() => {
+    callback();
+  }, []);
+};
+
+export const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  useEffect(() => {
+    const timeout = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(timeout);
+  }, [value, delay]);
+
+  return debouncedValue;
 };
