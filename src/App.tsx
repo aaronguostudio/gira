@@ -1,12 +1,13 @@
+import { useAuth } from 'context/auth-context'
+import { UnauthApp } from 'unauth-app'
+import { AuthApp } from './auth-app'
 import './App.css'
-import { LoginScreen } from 'screens/login'
-import { TsReactTest } from 'try-use-array'
 
 function App() {
+  const { user } = useAuth()
   return (
     <div className="App">
-      <LoginScreen />
-      <TsReactTest />
+      { user ? <AuthApp /> : <UnauthApp /> }
     </div>
   );
 }
