@@ -1,4 +1,4 @@
-import { Card, Divider } from "antd"
+import { Button, Card, Divider } from "antd"
 import { useState } from "react"
 import { LoginScreen } from "./login"
 import { RegisterScreen } from "./register"
@@ -16,12 +16,10 @@ export const UnauthApp = () => {
       <ShadowCard>
         <Title>{ isRegister ? 'Login' : 'Register' }</Title>
         { isRegister ? <LoginScreen /> : <RegisterScreen /> }
-
         <Divider />
-
-        <Link onClick={() => setIsRegister(!isRegister)}>
-          Switch to { isRegister ? 'Register' : 'Login' }
-        </Link>
+        <Button onClick={() => setIsRegister(!isRegister)} type="link">
+          Switch to { isRegister ? 'Register' : 'Signin' }
+        </Button>
       </ShadowCard>
     </Container>
   )
@@ -41,11 +39,6 @@ const Background = styled.div`
 const Title = styled.h2`
   margin-bottom: 2.4rem;
   color: rgba(94, 108, 132);
-`
-
-const Link = styled.div`
-  color: rgba(94, 108, 132);
-  cursor: pointer;
 `
 
 const Header = styled.header`

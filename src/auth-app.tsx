@@ -3,19 +3,33 @@ import { Row } from 'components/lib'
 import { useAuth } from 'context/auth-context'
 import { ProjectListScreen } from 'screens/project-list'
 import { STYLES } from 'styles/common'
+import logo from 'assets/logo.png'
+import { Button, Dropdown, Menu } from 'antd'
 
 export const AuthApp = () => {
-  const { logout } = useAuth()
+  const { logout, user } = useAuth()
   return (
     <Container>
       <Header between={true}>
         <HeaderLeft gap={true}>
-          <div>1</div>
-          <div>1</div>
-          <div>1</div>
+          <img src={logo} width={STYLES.size100} alt={'logo'} />
+          <div>Projects</div>
+          <div>Users</div>
         </HeaderLeft>
         <HeaderRight>
-          <button onClick={logout}>Logout</button>
+          <Dropdown overlay={
+            <Menu>
+              <Menu.Item key={'logout'}>
+              <Button onClick={logout} type={"link"}>
+                Logout
+              </Button>
+              </Menu.Item>
+            </Menu>
+          }>
+            <Button type={"link"} onClick={(e) => e.preventDefault()}>
+              Hi. { user?.name }
+            </Button>
+          </Dropdown>
         </HeaderRight>
       </Header>
       <Left>
@@ -47,7 +61,7 @@ const Container = styled.div`
 
 const Header = styled(Row)`
   grid-area: header;
-  box-shadow: ${STYLES.shadow1};
+  box-shadow: ${STYLES.shadow3};
   z-index: 1;
   padding: 0 2rem;
 `;
